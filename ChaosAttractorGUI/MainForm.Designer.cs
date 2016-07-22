@@ -30,15 +30,19 @@
 		{
 			this.pictureBox = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.lblMaxOutput = new System.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// pictureBox
 			// 
+			this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
 			this.pictureBox.Location = new System.Drawing.Point(12, 41);
 			this.pictureBox.Name = "pictureBox";
 			this.pictureBox.Size = new System.Drawing.Size(425, 377);
-			this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+			this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox.TabIndex = 0;
 			this.pictureBox.TabStop = false;
 			// 
@@ -51,11 +55,20 @@
 			this.label1.TabIndex = 1;
 			this.label1.Text = "[ Hit enter or spacebar ]";
 			// 
+			// lblMaxOutput
+			// 
+			this.lblMaxOutput.Location = new System.Drawing.Point(236, 25);
+			this.lblMaxOutput.Name = "lblMaxOutput";
+			this.lblMaxOutput.Size = new System.Drawing.Size(201, 13);
+			this.lblMaxOutput.TabIndex = 2;
+			this.lblMaxOutput.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(449, 430);
+			this.Controls.Add(this.lblMaxOutput);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.pictureBox);
 			this.Name = "MainForm";
@@ -71,6 +84,7 @@
 
 		private System.Windows.Forms.PictureBox pictureBox;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label lblMaxOutput;
 	}
 }
 

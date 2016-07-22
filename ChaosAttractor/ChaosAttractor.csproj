@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComplexModulus.cs" />
     <Compile Include="Lorenz.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

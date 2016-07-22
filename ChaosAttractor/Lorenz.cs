@@ -8,13 +8,21 @@ namespace ChaosAttractor
 {
 	public class Lorenz
 	{
-		public decimal x { get; private set; }
-		public decimal y { get; private set; }
-		public decimal z { get; private set; }
+		public int X { get { return FitRange(x, Scale, MaxRange); } }
+		public int Y { get { return FitRange(y, Scale, MaxRange); } }
+		public int Z { get { return FitRange(z, Scale, MaxRange); } }
+		public int Scale { get; set; }
+		public int MaxRange { get; set; }
+
+		public int MaxOutput { get; private set; }
 
 		private decimal a;
 		private decimal b;
 		private decimal c;
+
+		private decimal x;
+		private decimal y;
+		private decimal z;
 
 		private decimal dx;
 		private decimal dy;
@@ -22,10 +30,12 @@ namespace ChaosAttractor
 
 		private int mod;
 		private decimal time;
-		private static int multiplier = 100000;
+		//private static int multiplier = 100000;
+
 
 		public Lorenz(int modulus)
 		{
+			MaxOutput = 0;
 			mod = modulus;
 
 			a = 10;
@@ -52,48 +62,55 @@ namespace ChaosAttractor
 			y = y + dy;
 			z = z + dz;
 
-			//FitRange();
+			MaxOutput = Math.Max(MaxOutput, Math.Abs((int)dx));
+			MaxOutput = Math.Max(MaxOutput, Math.Abs((int)dy));
+			MaxOutput = Math.Max(MaxOutput, Math.Abs((int)dz));
+													 
+			//MaxOutput = Math.Max(MaxOutput, Math.Abs((int)x));
+			//MaxOutput = Math.Max(MaxOutput, Math.Abs((int)y));
+			//MaxOutput = Math.Max(MaxOutput, Math.Abs((int)z));
 		}
 
-		public void AddNoise(int a, int b, int c)
+		//public void AddNoise(int a, int b, int c)
+		//{
+		//	unchecked
+		//	{
+		//		x = x + a;
+		//		y = y + b;
+		//		z = z + c;
+		//	}
+		//}
+
+		private int FitRange(decimal n, int scale, int max)
 		{
-			unchecked
+			int val = (int)Math.Abs(n * scale);
+			val = Math.Min(val, max - 1);
+			if (val>=max-1) // Truncates value outside of range
 			{
-				x = x + a;
-				y = y + b;
-				z = z + c;
+				val = 0;
 			}
+			return val;
 		}
 
-		private void FitRange()
-		{
-			unchecked
-			{
-				x = FitN(x);
-				y = FitN(y);
-				z = FitN(z);
-			}
-		}
+		//private decimal FitN(decimal n)
+		//{
+		//	unchecked
+		//	{
+		//		if (n < 1)
+		//		{
+		//			while (n < 1)
+		//			{
+		//				n = n + mod;
+		//				n = n * mod;
+		//			}
+		//		}
 
-		private decimal FitN(decimal n)
-		{
-			unchecked
-			{
-				if (n < 1)
-				{
-					while (n < 1)
-					{
-						n = n + mod;
-						n = n * mod;
-					}
-				}
-
-				if (n > mod)
-				{
-					n = n % mod;
-				}
-			}
-			return n;
-		}
+		//		if (n > mod)
+		//		{
+		//			n = n % mod;
+		//		}
+		//	}
+		//	return n;
+		//}
 	}
 }
