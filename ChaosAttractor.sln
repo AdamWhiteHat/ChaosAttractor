@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChaosAttractor", "ChaosAttractor\ChaosAttractor.csproj", "{8FCA72EC-2FBC-4379-BDD6-73C220F9E9DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChaosAttractorGUI", "ChaosAttractorGUI\ChaosAttractorGUI.csproj", "{75C18D9C-AEE9-4923-8D7F-5D06F99E7DE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FCA72EC-2FBC-4379-BDD6-73C220F9E9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FCA72EC-2FBC-4379-BDD6-73C220F9E9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FCA72EC-2FBC-4379-BDD6-73C220F9E9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FCA72EC-2FBC-4379-BDD6-73C220F9E9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75C18D9C-AEE9-4923-8D7F-5D06F99E7DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75C18D9C-AEE9-4923-8D7F-5D06F99E7DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75C18D9C-AEE9-4923-8D7F-5D06F99E7DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75C18D9C-AEE9-4923-8D7F-5D06F99E7DE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
