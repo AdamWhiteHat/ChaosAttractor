@@ -25,18 +25,18 @@ namespace ChaosAttractorGUI
 			pictureBox.Image = outputImage;
 
 			int size = Math.Min(pictureBox.Width, pictureBox.Height);
-			lorenzChaos = new Lorenz(size);
-			lorenzChaos.Scale = 25;
-			lorenzChaos.MaxRange = size;
+			lorenzChaos = new Lorenz(15)
+			{
+				MaxRange = size
+			};
 		}
-		
+
 		private void MainForm_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Space)
 			{
 				GetPoints3();
-				int maxOut = (int)lorenzChaos.MaxOutput;
-				lblMaxOutput.Text = $" {pictureBox.Width} X {pictureBox.Height} Max: {maxOut}";
+				lblMaxOutput.Text = $" {pictureBox.Width}:{pictureBox.Height} X:Y  -  Max(X:Y:Z) {lorenzChaos.MaxOutputX}:{lorenzChaos.MaxOutputY}:{lorenzChaos.MaxOutputZ}";
 			}
 		}
 

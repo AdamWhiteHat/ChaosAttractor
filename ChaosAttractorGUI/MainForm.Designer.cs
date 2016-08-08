@@ -39,9 +39,9 @@
 			this.pictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.pictureBox.Location = new System.Drawing.Point(12, 41);
+			this.pictureBox.Location = new System.Drawing.Point(2, 41);
 			this.pictureBox.Name = "pictureBox";
-			this.pictureBox.Size = new System.Drawing.Size(425, 377);
+			this.pictureBox.Size = new System.Drawing.Size(400, 400);
 			this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.pictureBox.TabIndex = 0;
 			this.pictureBox.TabStop = false;
@@ -57,9 +57,11 @@
 			// 
 			// lblMaxOutput
 			// 
-			this.lblMaxOutput.Location = new System.Drawing.Point(236, 25);
+			this.lblMaxOutput.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.lblMaxOutput.Location = new System.Drawing.Point(134, 25);
 			this.lblMaxOutput.Name = "lblMaxOutput";
-			this.lblMaxOutput.Size = new System.Drawing.Size(201, 13);
+			this.lblMaxOutput.Size = new System.Drawing.Size(258, 13);
 			this.lblMaxOutput.TabIndex = 2;
 			this.lblMaxOutput.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
@@ -67,7 +69,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(449, 430);
+			this.ClientSize = new System.Drawing.Size(404, 443);
 			this.Controls.Add(this.lblMaxOutput);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.pictureBox);
