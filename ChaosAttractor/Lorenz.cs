@@ -93,8 +93,8 @@ namespace ChaosAttractor
 		{
 			public static void Tan(Lorenz system)
 			{
-				system.x = 8 * (decimal)Math.Tan((double)system.x);
-				system.y = 8 * (decimal)Math.Tan((double)system.y);
+				system.x = 6 * (decimal)Math.Tan((double)system.x);
+				system.y = 6 * (decimal)Math.Tan((double)system.y);
 			}			
 
 			public static void MixedCosTan(Lorenz system)
@@ -105,14 +105,14 @@ namespace ChaosAttractor
 			
 			public static void TanCos(Lorenz system)
 			{
-				system.x = 8 * (decimal)Math.Tan(Math.Cos((double)system.x));
-				system.y = 8 * (decimal)Math.Tan(Math.Cos((double)system.y));
+				system.x = 16 * (decimal)Math.Tan(Math.Cos((double)system.x));
+				system.y = 16 * (decimal)Math.Tan(Math.Cos((double)system.y));
 			}
 			
 			public static void TanSin(Lorenz system)
 			{
-				system.x = 8 * (decimal)Math.Tan(Math.Sin((double)system.x));
-				system.y = 8 * (decimal)Math.Tan(Math.Sin((double)system.y));
+				system.x = 16 * (decimal)Math.Tan(Math.Sin((double)system.x));
+				system.y = 16 * (decimal)Math.Tan(Math.Sin((double)system.y));
 			}			
 		}
 	}
