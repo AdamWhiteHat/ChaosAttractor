@@ -31,6 +31,7 @@
 			this.pictureBox = new System.Windows.Forms.PictureBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.lblMaxOutput = new System.Windows.Forms.Label();
+			this.checkBoxFlatten = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -65,6 +66,19 @@
 			this.lblMaxOutput.TabIndex = 2;
 			this.lblMaxOutput.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
+			// checkBoxFlatten
+			// 
+			this.checkBoxFlatten.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.checkBoxFlatten.AutoSize = true;
+			this.checkBoxFlatten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.checkBoxFlatten.Location = new System.Drawing.Point(344, 5);
+			this.checkBoxFlatten.Name = "checkBoxFlatten";
+			this.checkBoxFlatten.Size = new System.Drawing.Size(55, 17);
+			this.checkBoxFlatten.TabIndex = 300;
+			this.checkBoxFlatten.Text = "Flatten";
+			this.checkBoxFlatten.UseVisualStyleBackColor = true;
+			this.checkBoxFlatten.CheckedChanged += new System.EventHandler(this.checkBoxFlatten_CheckedChanged);			
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -73,9 +87,9 @@
 			this.Controls.Add(this.lblMaxOutput);
 			this.Controls.Add(this.label1);
 			this.Controls.Add(this.pictureBox);
+			this.Controls.Add(this.checkBoxFlatten);
 			this.Name = "MainForm";
 			this.Text = "Chaos Attractor";
-			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
@@ -87,6 +101,7 @@
 		private System.Windows.Forms.PictureBox pictureBox;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label lblMaxOutput;
+		private System.Windows.Forms.CheckBox checkBoxFlatten;
 	}
 }
 

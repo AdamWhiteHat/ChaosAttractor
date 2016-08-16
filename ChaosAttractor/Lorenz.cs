@@ -14,7 +14,13 @@ namespace ChaosAttractor
 		public int Scale { get; set; }
 		public int MaxRange { get; set; }
 
-		public int MaxOutput { get; private set; }
+		public int MaxOutputX { get; private set; }
+		public int MaxOutputY { get; private set; }
+		public int MaxOutputZ { get; private set; }
+
+		public TransformDelegate TransformationFunction { get; set; }
+
+		public delegate void TransformDelegate(Lorenz system);
 
 		private decimal a;
 		private decimal b;
@@ -28,23 +34,23 @@ namespace ChaosAttractor
 		private decimal dy;
 		private decimal dz;
 
-		private int mod;
 		private decimal time;
-		//private static int multiplier = 100000;
 
-
-		public Lorenz(int modulus)
+		public Lorenz(int scale)
 		{
-			MaxOutput = 0;
-			mod = modulus;
+			MaxOutputX = 0;
+			MaxOutputY = 0;
+			MaxOutputZ = 0;
 
-			a = 10;
-			b = 28;
-			c = 8 / 3.0m;
+			Scale = scale;
 
-			x = 0.01m;
-			y = 0;
-			z = 0;
+			a = 10 + PseudoRandomNoise.GetRandom3();
+			b = 28 + PseudoRandomNoise.GetRandom3();
+			c = (8 + PseudoRandomNoise.GetRandom3()) / 3.0m;
+
+			x = 0.01m; 
+			y = + PseudoRandomNoise.GetRandom3();
+			z = + PseudoRandomNoise.GetRandom3();
 
 			dx = 0;
 			dy = 0;
@@ -62,55 +68,52 @@ namespace ChaosAttractor
 			y = y + dy;
 			z = z + dz;
 
-			MaxOutput = Math.Max(MaxOutput, Math.Abs((int)dx));
-			MaxOutput = Math.Max(MaxOutput, Math.Abs((int)dy));
-			MaxOutput = Math.Max(MaxOutput, Math.Abs((int)dz));
-													 
-			//MaxOutput = Math.Max(MaxOutput, Math.Abs((int)x));
-			//MaxOutput = Math.Max(MaxOutput, Math.Abs((int)y));
-			//MaxOutput = Math.Max(MaxOutput, Math.Abs((int)z));
-		}
+			if (TransformationFunction != null)
+			{
+				TransformationFunction.Invoke(this);
+			}
 
-		//public void AddNoise(int a, int b, int c)
-		//{
-		//	unchecked
-		//	{
-		//		x = x + a;
-		//		y = y + b;
-		//		z = z + c;
-		//	}
-		//}
+			MaxOutputX = Math.Max(MaxOutputX, Math.Abs((int)dx));
+			MaxOutputY = Math.Max(MaxOutputY, Math.Abs((int)dy));
+			MaxOutputZ = Math.Max(MaxOutputZ, Math.Abs((int)dz));
+		}		
 
 		private int FitRange(decimal n, int scale, int max)
 		{
 			int val = (int)Math.Abs(n * scale);
 			val = Math.Min(val, max - 1);
-			if (val>=max-1) // Truncates value outside of range
+			if (val >= max - 1) // Truncates value outside of range
 			{
 				val = 0;
 			}
 			return val;
 		}
 
-		//private decimal FitN(decimal n)
-		//{
-		//	unchecked
-		//	{
-		//		if (n < 1)
-		//		{
-		//			while (n < 1)
-		//			{
-		//				n = n + mod;
-		//				n = n * mod;
-		//			}
-		//		}
+		public static class Transform
+		{
+			public static void Tan(Lorenz system)
+			{
+				system.x = 8 * (decimal)Math.Tan((double)system.x);
+				system.y = 8 * (decimal)Math.Tan((double)system.y);
+			}			
 
-		//		if (n > mod)
-		//		{
-		//			n = n % mod;
-		//		}
-		//	}
-		//	return n;
-		//}
+			public static void MixedCosTan(Lorenz system)
+			{
+				system.x = 16 * (decimal)Math.Cos((double)system.x);
+				system.y = 8 * (decimal)Math.Tan((double)system.y);
+			}
+			
+			public static void TanCos(Lorenz system)
+			{
+				system.x = 8 * (decimal)Math.Tan(Math.Cos((double)system.x));
+				system.y = 8 * (decimal)Math.Tan(Math.Cos((double)system.y));
+			}
+			
+			public static void TanSin(Lorenz system)
+			{
+				system.x = 8 * (decimal)Math.Tan(Math.Sin((double)system.x));
+				system.y = 8 * (decimal)Math.Tan(Math.Sin((double)system.y));
+			}			
+		}
 	}
 }
